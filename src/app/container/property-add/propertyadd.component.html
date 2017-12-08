@@ -1,0 +1,31 @@
+<h1>propery add</h1>
+<form [formGroup]="propertyForm">
+    <div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="propertyname" formControlName="propertyname">
+    </mat-form-field>
+    </div>
+    <div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email"  formControlName="email">
+    </mat-form-field>
+    </div>
+    <div>
+    <mat-form-field class="example-full-width">
+       <input matInput placeholder="Phone no"  formControlName="phone">
+    </mat-form-field>
+    </div>
+    <!-- <fieldset formGroupName="address">
+        <label>Street:</label>
+        <input type="text" formControlName="street">
+      
+        <label>Zip:</label>
+        <input type="text" formControlName="zip">
+      
+        <label>City:</label>
+        <input type="text" formControlName="city">
+    </fieldset><br>
+    <label>Image:</label>
+    <input type="text" formControlName="image"><br> -->
+    <button type="submit">Submit</button>
+  </form>
