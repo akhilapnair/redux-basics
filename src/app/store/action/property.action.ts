@@ -19,3 +19,6 @@ export class LoadPropertySucess implements Action {
     readonly type = LOAD_PROPERTY_SUCESS;
     constructor(public payload: any) {}
 }
+
+// action type
+export type PropertyAction = LoadProperty | LoadPropertyFail | LoadPropertySucess;
