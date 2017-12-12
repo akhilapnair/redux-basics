@@ -5,8 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 // import * as fromContainer from './container/property-list/propertylist.module';
-// import *  { fromStore } from './store';
-// import * as fromModel from './model';
+import { reducers } from './store';
+import * as fromModel from './model/property.model';
+import { PropertyAddComponent } from './container/property-add/propertyadd.component';
+import { PropertyListComponent } from './container/property-list/propertylist.component';
 
 
 @NgModule({
@@ -16,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
       RouterModule.forRoot([{path: 'propertyadd'},
       { path: '', redirectTo : 'propertylist', pathMatch: 'full' },
       { path: '**', redirectTo : 'propertylist', pathMatch: 'full' }]),
-    //   StoreModule.forFeature(),
+      StoreModule.forFeature('proprty', reducers),
     ],
     declarations: [
       ],
