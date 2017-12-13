@@ -1,28 +1,38 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
-// import * as fromContainer from './container/property-list/propertylist.module';
+import * as fromContainer from './container';
 import { reducers } from './store';
 import * as fromModel from './model/property.model';
 import { PropertyAddComponent } from './container/property-add/propertyadd.component';
 import { PropertyListComponent } from './container/property-list/propertylist.component';
 
-
+// routes
+export const ROUTES: Routes = [
+  {
+    path: 'property',
+    component: fromContainer.PropertyListComponent,
+  },
+  // {
+  //   path: ':id',
+  //   component: fromContainer.PropertyAddComponent,
+  // },
+  // {
+  //   path: 'new',
+  //   component: fromContainers.ProductItemComponent,
+  // },
+];
 @NgModule({
     imports: [
       BrowserModule,
-      // StoreModule.forRoot({message: SimpleReducer}),
-      RouterModule.forRoot([{path: 'propertyadd'},
-      { path: '', redirectTo : 'propertylist', pathMatch: 'full' },
-      { path: '**', redirectTo : 'propertylist', pathMatch: 'full' }]),
-      StoreModule.forFeature('proprty', reducers),
+      RouterModule.forChild(ROUTES),
+      StoreModule.forFeature('property', reducers),
     ],
-    declarations: [
-      ],
-    providers: [],
-    bootstrap: []
+    // providers: [...fromServices.services],
+    declarations: [...fromContainer.containers],
+    exports: [...fromContainer.containers],
   })
   export class PropertyModule { }
