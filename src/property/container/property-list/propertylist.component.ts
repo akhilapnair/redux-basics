@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { PropertyAddComponent } from '../property-add/propertyadd.component';
-import * as fromStore from '../../store';
 import { Store} from '@ngrx/store';
 @Component({
     selector: 'app-list',
@@ -11,7 +10,7 @@ import { Store} from '@ngrx/store';
 })
 export class PropertyListComponent implements OnInit {
     propertyDialogRef: MatDialogRef<PropertyAddComponent>;
-    constructor(public dialog: MatDialog, private store: Store<fromStore.ProductState>) {}
+    constructor(public dialog: MatDialog, private store: Store<any>) {}
     ngOnInit() {
         // this.pizzas$ = this.store.select<any>(fromStore.getAllPizzas);
         this.store.select<any>('property').subscribe(

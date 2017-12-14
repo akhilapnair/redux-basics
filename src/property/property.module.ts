@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,19 +40,8 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { reducer } from './store/reducers/propertystate.reducer';
 import * as fromContainer from './container';
-import * as fromStore from './store';
-import { reducers } from './store';
-
-// import { BrowserModule } from '@angular/platform-browser';
-// import { ReactiveFormsModule } from '@angular/forms';
-// import { StoreModule } from '@ngrx/store';
-// import { HttpClientModule } from '@angular/common/http';
-// import * as fromContainer from './container';
-// import { reducers } from './store';
-// import * as fromModel from './model/property.model';
-// import { PropertyAddComponent } from './container/property-add/propertyadd.component';
-// import { PropertyListComponent } from './container/property-list/propertylist.component';
 
 
 // routes
@@ -103,7 +91,7 @@ export const ROUTES: Routes = [
         RouterModule,
         ReactiveFormsModule,
         RouterModule.forChild(ROUTES),
-        StoreModule.forFeature('property', {reducers})],
+        StoreModule.forFeature('property', reducer)],
     declarations: [...fromContainer.containers],
     exports: [...fromContainer.containers],
     entryComponents: [ PropertyAddComponent ],
