@@ -42,6 +42,7 @@ import {
 } from '@angular/material';
 import { reducer } from './store/reducers/propertystate.reducer';
 import * as fromContainer from './container';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 // routes
@@ -91,7 +92,12 @@ export const ROUTES: Routes = [
         RouterModule,
         ReactiveFormsModule,
         RouterModule.forChild(ROUTES),
-        StoreModule.forFeature('property', reducer)],
+        StoreModule.forFeature('property', reducer),
+        StoreDevtoolsModule.instrument({
+          maxAge: 5
+        })
+      ],
+
     declarations: [...fromContainer.containers],
     exports: [...fromContainer.containers],
     entryComponents: [ PropertyAddComponent ],

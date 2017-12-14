@@ -12,10 +12,6 @@ export class PropertyListComponent implements OnInit {
     propertyDialogRef: MatDialogRef<PropertyAddComponent>;
     constructor(public dialog: MatDialog, private store: Store<any>) {}
     ngOnInit() {
-        // this.pizzas$ = this.store.select<any>(fromStore.getAllPizzas);
-        this.store.select<any>('property').subscribe(
-          state => console.log(state)
-        );
       }
     openDialog(): void {
         this.propertyDialogRef = this.dialog.open(PropertyAddComponent, {

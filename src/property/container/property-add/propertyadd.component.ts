@@ -26,9 +26,13 @@ export class PropertyAddComponent implements OnInit  {
               city: ['', Validators.required]
             })
           });
+
+          this.store.select<any>('property').subscribe(
+            state => console.log('TESTING... : ', state)
+          );
       }
    getData(data: any) {
-     console.log(data);
+    //  console.log(data);
      this.store.dispatch({
       type: fromproperty.LOAD_PROPERTY,
       payload: data

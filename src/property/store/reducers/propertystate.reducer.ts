@@ -8,16 +8,16 @@ export interface PropertyState {
 
 export const initialState: PropertyState = {
 
-    data: [
-            ],
-    // loaded: false,
-    // loading: false
+    data: []
 };
 
-export function reducer(state= initialState, action) {
+export function reducer(state= initialState, action: any) {
+    console.log(action.type);
     switch (action.type) {
         case fromproperty.LOAD_PROPERTY: {
-            return {...state
+            return {
+                ...state,
+                data: action.payload
              };
         }
 
