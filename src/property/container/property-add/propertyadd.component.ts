@@ -18,14 +18,16 @@ export class PropertyAddComponent implements OnInit  {
             propertyname: ['', Validators.required],
             email: ['', Validators.required],
             phone: ['', Validators.required],
-            image: ['', Validators.required],
+            // image: ['', Validators.required],
             address: this.formBuilder.group({
-              street: [],
-              zip: [],
-              city: []
+              street: ['', Validators.required],
+              zip: ['', Validators.required],
+              city: ['', Validators.required]
             })
           });
       }
-    // constructor(public dialogRef: MatDialogRef<PropertyAddComponent>) { }
+   getData(data: any) {
+     console.log(data);
+   }
 
 }
