@@ -5,6 +5,7 @@ import { PropertyListComponent } from '../property-list/propertylist.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as fromproperty from '../../store/action/property.action';
 import { Store} from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'app-add',
@@ -13,6 +14,7 @@ import { Store} from '@ngrx/store';
 })
 export class PropertyAddComponent implements OnInit  {
     propertyForm: FormGroup;
+    data$: Observable<any>;
       constructor(private formBuilder: FormBuilder, private store: Store<any>) {}
       ngOnInit() {
         this.propertyForm = this.formBuilder.group({
@@ -27,9 +29,7 @@ export class PropertyAddComponent implements OnInit  {
             })
           });
 
-          this.store.select<any>('property').subscribe(
-            state => console.log('TESTING... : ', state)
-          );
+         this.data$ = this.store.select<any>('property');
       }
    getData(data: any) {
     //  console.log(data);
