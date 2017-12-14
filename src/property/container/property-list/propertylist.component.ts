@@ -21,7 +21,7 @@ export class PropertyListComponent implements OnInit {
     openDialog(): void {
         this.propertyDialogRef = this.dialog.open(PropertyAddComponent, {
               width: '500px',
-              height: '500px'
+              height: '661px'
             });
 
       }

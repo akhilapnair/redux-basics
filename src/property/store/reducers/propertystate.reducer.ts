@@ -9,10 +9,7 @@ export interface PropertyState {
 export const initialState: PropertyState = {
 
     data: [
-            {
-            "propertyname":"tvm",
-            "email": "atvm@gmail.com"
-         }],
+            ],
     loaded: false,
     loading: false
 };

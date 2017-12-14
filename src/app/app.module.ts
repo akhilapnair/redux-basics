@@ -19,6 +19,7 @@ export const ROUTES: Routes = [
     loadChildren: '../property/property.module#PropertyModule',
   },
 ];
+
 @NgModule({
   declarations: [
     AppComponent
@@ -30,6 +31,7 @@ export const ROUTES: Routes = [
     StoreDevtoolsModule.instrument({
       maxAge: 5
     }),
+
     StoreModule.forRoot({}),
     RouterModule.forRoot(ROUTES),
   ],
