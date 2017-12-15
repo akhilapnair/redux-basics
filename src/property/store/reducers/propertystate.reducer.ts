@@ -13,7 +13,6 @@ export const initialState: PropertyState = {
 };
 
 export function reducer(state= initialState, action: any) {
-    console.log(state);
     switch (action.type) {
         case fromproperty.LOAD_PROPERTY: {
             return {
@@ -35,3 +34,4 @@ export function reducer(state= initialState, action: any) {
     return state;
 
 }
+export const getProperty = (state: PropertyState) => state.data;
