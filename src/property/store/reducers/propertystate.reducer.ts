@@ -2,13 +2,14 @@ import * as fromproperty from '../action/property.action';
 import { Property } from '../../model/property.model';
 export interface PropertyState {
     data: Property[];
-    // loaded: boolean;
+    loaded: boolean;
     // loading: boolean;
 }
 
 export const initialState: PropertyState = {
 
-    data: []
+    data: [],
+    loaded: false
 };
 
 export function reducer(state= initialState, action: any) {
@@ -32,6 +33,5 @@ export function reducer(state= initialState, action: any) {
         }
     }
     return state;
-
 
 }

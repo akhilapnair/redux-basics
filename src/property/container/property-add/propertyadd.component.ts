@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as fromproperty from '../../store/action/property.action';
 import { Store} from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import * as  fromAction from '../../store/action/property.action';
 
 @Component({
     selector: 'app-add',
@@ -32,11 +33,12 @@ export class PropertyAddComponent implements OnInit  {
          this.data$ = this.store.select<any>('property');
       }
    getData(data: any) {
-    //  console.log(data);
+     console.log(data);
      this.store.dispatch({
       type: fromproperty.LOAD_PROPERTY,
       payload: data
      });
+    this.store.dispatch(new fromAction.LoadProperty({data: data}));
    }
 
 }

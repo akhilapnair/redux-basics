@@ -9,6 +9,11 @@ import 'rxjs/add/observable/throw';
 import { Property } from '../model/property.model';
 
 @Injectable()
-export class PizzasService {
-    constructor() {}
-}
+export class PropertyService {
+    constructor(private http: HttpClient) {}
+    getProperty(): Observable<any> {
+            return this.http
+              .get(`'./assets/data/', '.json'`);
+            //   .pipe(catchError((error: any) => Observable.throw(error.json())));
+          }
+    }

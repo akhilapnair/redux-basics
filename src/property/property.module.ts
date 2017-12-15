@@ -18,10 +18,12 @@ import {
   MatSliderModule,
   MatSlideToggleModule,
 } from '@angular/material';
+import { EffectsModule } from '@ngrx/effects';
 import { reducer } from './store/reducers/propertystate.reducer';
 import * as fromContainer from './container';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
+import { PropertyService } from './service/property.service';
+import { PropertyEffects } from '../property/store/effects/property.effect';
 
 // routes
 export const ROUTES: Routes = [
@@ -44,11 +46,13 @@ export const ROUTES: Routes = [
         MatDialogModule,
         FlexLayoutModule,
         RouterModule,
+        HttpClientModule,
         ReactiveFormsModule,
         RouterModule.forChild(ROUTES),
-        StoreModule.forFeature('property', reducer)
+        StoreModule.forFeature('property', reducer),
+        EffectsModule.forFeature([PropertyEffects])
       ],
-
+    providers: [PropertyService],
     declarations: [...fromContainer.containers],
     exports: [...fromContainer.containers],
     entryComponents: [ PropertyAddComponent ],
