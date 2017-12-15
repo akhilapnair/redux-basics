@@ -3,11 +3,10 @@
 <div>
   <mat-card  class="card">
     <div>
-        <!-- Welcome to {{ (data$ | async) ["data"]["propertyname"] }}! -->
+        {{ (data$ | async) ["loaded"] }}
     </div>
    
   </mat-card>
 </div>
-
 <button mat-fab  (click)="openDialog()"> Add</button>
 

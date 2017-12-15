@@ -6,6 +6,7 @@ import { Store} from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as  fromAction from '../../store/action/property.action';
 import { PropertyService } from '../../service/property.service';
+import { PropertyState } from '../../store/reducers/propertystate.reducer';
 @Component({
     selector: 'app-list',
     templateUrl: './propertylist.component.html',
@@ -17,7 +18,7 @@ export class PropertyListComponent implements OnInit {
     constructor(public dialog: MatDialog, private store: Store<any>, private propertyservice: PropertyService) {}
     ngOnInit() {
         this.data$ = this.store.select<any>('property');
-        console.log( this.data$);
+        // console.log( this.data$);
         this.store.dispatch(new fromAction.LoadProperty());
     }
     openDialog(): void {

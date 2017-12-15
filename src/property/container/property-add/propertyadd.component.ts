@@ -38,7 +38,7 @@ export class PropertyAddComponent implements OnInit  {
       type: fromproperty.LOAD_PROPERTY,
       payload: data
      });
-    this.store.dispatch(new fromAction.LoadProperty({data: data}));
+    // this.store.dispatch(new fromAction.LoadProperty({data: data}));
    }
 
 }
