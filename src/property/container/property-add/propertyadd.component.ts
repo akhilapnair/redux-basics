@@ -33,7 +33,7 @@ export class PropertyAddComponent implements OnInit  {
          this.data$ = this.store.select<any>('property');
       }
    getData(data: any) {
-     console.log(data);
+    //  console.log(data);
      this.store.dispatch({
       type: fromproperty.LOAD_PROPERTY,
       payload: data

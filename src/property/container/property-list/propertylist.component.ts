@@ -18,7 +18,7 @@ export class PropertyListComponent implements OnInit {
     constructor(public dialog: MatDialog, private store: Store<any>, private propertyservice: PropertyService) {}
     ngOnInit() {
         this.data$ = this.store.select<any>('property');
-        // console.log( this.data$);
+        console.log( this.data$);
         this.store.dispatch(new fromAction.LoadProperty());
     }
     openDialog(): void {

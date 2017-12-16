@@ -13,7 +13,7 @@ export class PropertyService {
     constructor(private http: HttpClient) {}
     getProperty(): Observable<any> {
             return this.http
-              .get(`'./assets/data/', '.json'`);
+              .get('../../assets/db.json');
             //   .pipe(catchError((error: any) => Observable.throw(error.json())));
           }
     }
