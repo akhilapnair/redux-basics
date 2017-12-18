@@ -13,13 +13,13 @@ import { PropertyState } from '../../store/reducers/propertystate.reducer';
     styleUrls: ['./propertylist.component.css']
 })
 export class PropertyListComponent implements OnInit {
-    data$: Observable<any>;
+    data$: Observable<Array<any>>;
     propertyDialogRef: MatDialogRef<PropertyAddComponent>;
     constructor(public dialog: MatDialog, private store: Store<any>, private propertyservice: PropertyService) {}
     ngOnInit() {
+        this.store.dispatch(new fromAction.LoadProperty());
         this.data$ = this.store.select<any>('property');
         console.log( this.data$);
-        this.store.dispatch(new fromAction.LoadProperty());
     }
     openDialog(): void {
         this.propertyDialogRef = this.dialog.open(PropertyAddComponent, {

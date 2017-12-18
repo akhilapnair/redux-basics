@@ -14,6 +14,12 @@ export class PropertyService {
     getProperty(): Observable<any> {
             return this.http
               .get('../../assets/db.json');
-            //   .pipe(catchError((error: any) => Observable.throw(error.json())));
+              // this.http.get(url).map(res => res.json());
+              // .pipe(catchError((error: any) => Observable.throw(error.json())));
           }
+    createPizza(payload): Observable<any> {
+      return this.http
+        .post('../../assets/db.json', payload);
+        // .pipe(catchError((error: any) => Observable.throw(error.json())));
     }
+ }

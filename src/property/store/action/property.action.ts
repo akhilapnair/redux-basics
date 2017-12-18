@@ -20,6 +20,27 @@ export class LoadPropertySucess implements Action {
     readonly type = LOAD_PROPERTY_SUCESS;
     constructor(public payload: any) {}
 }
+// Create Pizza
+export const CREATE_PROPERTY = ' load property';
+export const CREATE_PROPERTY_SUCESS = 'load property sucess';
+export const CREATE_PROPERTY_FAIL = ' load property fail';
 
+export class CreateProperty implements Action {
+    readonly type = CREATE_PROPERTY;
+    constructor(public payload?: any) { }
+    }
+export class CreatePropertyFail implements Action {
+    readonly type = CREATE_PROPERTY_FAIL;
+    constructor(public payload: any) {}
+}
+export class CreatePropertySucess implements Action {
+    readonly type = CREATE_PROPERTY_SUCESS;
+    constructor(public payload: any) {}
+}
 // action type
-export type PropertyAction = LoadProperty | LoadPropertyFail | LoadPropertySucess;
+export type PropertyAction = | LoadProperty
+                             | LoadPropertyFail
+                             | LoadPropertySucess
+                             | CreateProperty
+                             | CreatePropertyFail
+                             | CreatePropertySucess;

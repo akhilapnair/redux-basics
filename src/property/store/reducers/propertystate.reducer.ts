@@ -25,7 +25,8 @@ export function reducer(state= initialState, action: any) {
         }
 
         case fromproperty.LOAD_PROPERTY_FAIL: {
-            return {...state,
+            return {...state, loading: false, loaded: false,
+                data: action.payload
                     };
         }
 

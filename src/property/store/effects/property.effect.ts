@@ -8,14 +8,25 @@ import * as fromService from '../../service/property.service';
 
 @Injectable()
 export class PropertyEffects {
-    constructor(private action$: Actions, private PizzaServices: fromService.PropertyService) {   }
+    constructor(private action$: Actions, private PropertyServices: fromService.PropertyService) {   }
 
-    @ Effect()
+    @Effect()
     loadProperty$ = this.action$.ofType(fromAction.LOAD_PROPERTY)
         .pipe(
             switchMap((): any => {
-                return this.PizzaServices.getProperty().pipe(
-                    map(propery => new fromAction.LoadPropertySucess(propery))
+                return this.PropertyServices.getProperty().pipe(
+                    map(property => new fromAction.LoadPropertySucess(property))
                 );
             }));
+
+    // @Effect()
+    // CreateProperty$ = this.action$.ofType(fromAction.CREATE_PROPERTY).pipe(
+    //     map((action : fromAction.CREATE_PROPERTY => action.payload))
+    //     switchMap( pizza => {
+    //             return this.PropertyServices
+    //             .createPizza(pizza).pipe(
+    //                 map(createproperty => new fromAction.CreatePropertySucess(createproperty))
+    //             );
+    //         }));
+
 }

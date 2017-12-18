@@ -2,11 +2,14 @@
 
 <div>
   <mat-card  class="card">
-    <div>
-        {{ (data$ | async) ["data"] }}
-        
+    <!-- <div *ngFor = "let property of data$ | async">
+        {{ property.email}}
+     
     </div>
-   
+    -->
+    <div>
+      {{data$ | async}}
+    </div>
   </mat-card>
 </div>
 <button mat-fab  (click)="openDialog()"> Add</button>
