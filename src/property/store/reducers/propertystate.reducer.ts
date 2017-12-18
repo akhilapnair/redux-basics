@@ -19,7 +19,9 @@ export function reducer(state= initialState, action: any) {
         case fromproperty.LOAD_PROPERTY: {
             console.log(action.payload);
             return {
-                ...state, loading: true, loaded: false,
+                ...state,
+                loading: true,
+                loaded: false,
                 data: action.payload
              };
         }
@@ -31,11 +33,25 @@ export function reducer(state= initialState, action: any) {
         }
 
         case fromproperty.LOAD_PROPERTY_SUCESS: {
-            const data = action.payload;
-            return {...state, loading: false, loaded: true,
-                    data
-                    };
+            return {
+                ...state, loading: true, loaded: false,
+                data: action.payload
+             };
                 }
+        case fromproperty.CREATE_PROPERTY: {
+            console.log('create property');
+            return {
+                ...state, loading: true, loaded: false,
+                data: action.payload
+             };
+        }
+        case fromproperty.CREATE_PROPERTY_SUCESS: {
+            console.log('@create sucess');
+            return {
+                ...state, loading: true, loaded: false,
+                data: action.payload
+             };
+        }
     }
     return state;
 

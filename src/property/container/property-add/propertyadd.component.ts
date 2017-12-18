@@ -16,7 +16,7 @@ import * as  fromAction from '../../store/action/property.action';
 export class PropertyAddComponent implements OnInit  {
     propertyForm: FormGroup;
     data$: Observable<any>;
-      constructor(private formBuilder: FormBuilder, private store: Store<any>) {}
+      constructor(public dialog: MatDialog, private formBuilder: FormBuilder, private store: Store<any>) {}
       ngOnInit() {
         this.propertyForm = this.formBuilder.group({
             propertyname: ['', Validators.required],
@@ -33,12 +33,13 @@ export class PropertyAddComponent implements OnInit  {
          this.data$ = this.store.select<any>('property');
       }
    getData(data: any) {
-    //  console.log(data);
+     console.log('DATA : ', data);
      this.store.dispatch({
-      type: fromproperty.LOAD_PROPERTY,
+      type: fromproperty.CREATE_PROPERTY,
       payload: data
      });
-    this.store.dispatch(new fromAction.CreateProperty({data: data}));
+     this.dialog.closeAll();
+    // this.store.dispatch(new fromAction.CreateProperty({data: data}));
    }
 
 }

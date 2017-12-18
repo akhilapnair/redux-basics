@@ -49,7 +49,7 @@ export const ROUTES: Routes = [
         HttpClientModule,
         ReactiveFormsModule,
         RouterModule.forChild(ROUTES),
-        StoreModule.forFeature('property', reducer),
+        StoreModule.forFeature('reducer', reducer),
         EffectsModule.forFeature([PropertyEffects])
       ],
     providers: [PropertyService],

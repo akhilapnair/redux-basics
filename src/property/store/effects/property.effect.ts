@@ -19,14 +19,14 @@ export class PropertyEffects {
                 );
             }));
 
-    // @Effect()
-    // CreateProperty$ = this.action$.ofType(fromAction.CREATE_PROPERTY).pipe(
-    //     map((action : fromAction.CREATE_PROPERTY => action.payload))
-    //     switchMap( pizza => {
-    //             return this.PropertyServices
-    //             .createPizza(pizza).pipe(
-    //                 map(createproperty => new fromAction.CreatePropertySucess(createproperty))
-    //             );
-    //         }));
+    @Effect()
+    CreateProperty$ = this.action$.ofType(fromAction.CREATE_PROPERTY).pipe(
+        map((action: fromAction.CreateProperty) => action.payload),
+        switchMap( pizza => {
+                return this.PropertyServices
+                .createPizza(pizza).pipe(
+                    map(createproperty => new fromAction.CreatePropertySucess(createproperty))
+                );
+            }));
 
 }
