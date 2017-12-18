@@ -2,10 +2,11 @@
 
 <div>
   <mat-card  class="card">
-    <!-- <div *ngFor = "let property of data$.data | async">
+     {{ ( data$ | async).data?.length}}
+    <div *ngFor = "let property of( data$ | async).data">
         {{ property.propertyname }}
   
-    </div> -->
+    </div>
     <div>
       {{ (data$ | async) ["data"] |json   }}
     </div>

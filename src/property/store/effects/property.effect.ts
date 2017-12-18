@@ -19,6 +19,8 @@ export class PropertyEffects {
                 );
             }));
 
+
+
     @Effect()
     CreateProperty$ = this.action$.ofType(fromAction.CREATE_PROPERTY).pipe(
         map((action: fromAction.CreateProperty) => action.payload),

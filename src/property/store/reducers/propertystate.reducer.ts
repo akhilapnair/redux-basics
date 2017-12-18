@@ -17,12 +17,12 @@ export const initialState: PropertyState = {
 export function reducer(state= initialState, action: any) {
     switch (action.type) {
         case fromproperty.LOAD_PROPERTY: {
-            console.log(action.payload);
+            console.log(action.payload ? 'NO' : 'YES');
             return {
                 ...state,
                 loading: true,
                 loaded: false,
-                data: action.payload
+                data: action.payload ? 'NO' : 'YES'
              };
         }
 
