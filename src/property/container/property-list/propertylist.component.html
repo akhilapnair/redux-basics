@@ -5,7 +5,7 @@
    
     <div *ngFor = "let property of( data$ | async).data">
         <!-- {{ ( data$ | async).data?.length}} -->
-        {{property.propertyname}}
+       <a [routerLink] = "['/map']"> {{property.propertyname}} </a>
     </div>
   </mat-card>
 </div>
