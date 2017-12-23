@@ -20,6 +20,7 @@ export const ROUTES: Routes = [
     path: 'property',
     loadChildren: '../property/property.module#PropertyModule',
   },
+  { path: 'map', component: MapComponent },
 ];
 
 @NgModule({
@@ -31,7 +32,7 @@ export const ROUTES: Routes = [
     CommonModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: ' '
+      apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s'
     }),
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
