@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
-lat: any = 51.678418;
-lng: any = 7.809007;
+lat: any = 21.7679;
+lng: any = 78.8718;
 }

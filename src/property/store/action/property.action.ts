@@ -39,6 +39,24 @@ export class CreatePropertySucess implements Action {
     readonly type = CREATE_PROPERTY_SUCESS;
     constructor(public payload: any) {}
 }
+// update Location
+export const UPDATE_LOCATION = ' update location';
+export const UPDATE_LOCATION_SUCESS = 'updata location sucess';
+export const UPDATE_LOCATION_FAIL = ' update location fail';
+
+export class UpdateLocation implements Action {
+    readonly type = UPDATE_LOCATION;
+    constructor(public payload?: any) { }
+    }
+export class UpdateLocationSucess implements Action {
+    readonly type = CREATE_PROPERTY_FAIL;
+    constructor(public payload: any) {}
+}
+export class UpdateLocationFail implements Action {
+    readonly type = CREATE_PROPERTY_SUCESS;
+    constructor(public payload: any) {}
+}
+
 // action type
 export type PropertyAction = | LoadProperty
                              | LoadPropertyFail
