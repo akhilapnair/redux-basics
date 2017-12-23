@@ -11,6 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PropertyEffects } from '../property/store/effects/property.effect';
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from '../property/container/map/map.component';
 // routes
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'property' },
@@ -22,11 +24,15 @@ export const ROUTES: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: ' '
+    }),
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
