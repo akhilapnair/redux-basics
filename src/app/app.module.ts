@@ -14,6 +14,7 @@ import { PropertyEffects } from '../property/store/effects/property.effect';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from '../property/container/map/map.component';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { MapsAPILoader } from '@agm/core';
 // routes
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'property' },
