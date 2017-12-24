@@ -35,7 +35,8 @@ export const ROUTES: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s'
+      apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s',
+       libraries: ['places']
     }),
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
