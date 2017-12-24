@@ -12,7 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PropertyEffects } from '../property/store/effects/property.effect';
 import { AgmCoreModule } from '@agm/core';
-import { MapComponent } from '../property/container/map/map.component';
+// import { MapComponent } from '../property/container/map/map.component';
 // routes
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'property' },
@@ -20,23 +20,21 @@ export const ROUTES: Routes = [
     path: 'property',
     loadChildren: '../property/property.module#PropertyModule',
   },
-  { path: 'map', component: MapComponent },
+  { path: 'map',
+    loadChildren: '../property/property.module#PropertyModule'},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
   ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s'
-    }),
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
+    AgmCoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 5
     })
