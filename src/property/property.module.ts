@@ -24,19 +24,17 @@ import * as fromContainer from './container';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PropertyService } from './service/property.service';
 import { PropertyEffects } from '../property/store/effects/property.effect';
-import { AgmCoreModule } from '@agm/core';
+
 // routes
 export const ROUTES: Routes = [
   {
     path: '',
     component: fromContainer.PropertyListComponent,
-  },
-  { path: '', component: fromContainer.MapComponent }
+  }
 ];
 
 @NgModule({
     imports: [
-        AgmCoreModule,
         CommonModule,
         MatCardModule,
         MatButtonModule,
@@ -52,10 +50,7 @@ export const ROUTES: Routes = [
         ReactiveFormsModule,
         RouterModule.forChild(ROUTES),
         StoreModule.forFeature('reducer', reducer),
-        EffectsModule.forFeature([PropertyEffects]),
-         AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s'
-    }),
+        EffectsModule.forFeature([PropertyEffects])
       ],
     providers: [PropertyService],
     declarations: [...fromContainer.containers],
