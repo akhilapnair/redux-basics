@@ -25,7 +25,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PropertyService } from './service/property.service';
 import { PropertyEffects } from '../property/store/effects/property.effect';
 
-
 // routes
 export const ROUTES: Routes = [
   {

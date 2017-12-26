@@ -13,6 +13,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PropertyEffects } from '../property/store/effects/property.effect';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from '../property/container/map/map.component';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { MapsAPILoader } from '@agm/core';
 // routes
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'property' },
@@ -30,9 +32,11 @@ export const ROUTES: Routes = [
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s'
+      apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s',
+       libraries: ['places']
     }),
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),

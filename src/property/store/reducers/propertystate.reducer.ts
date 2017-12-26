@@ -52,6 +52,35 @@ export function reducer(state= initialState, action: any) {
                 data: action.payload
              };
         }
+          case fromproperty.UPDATE_LOCATION: {
+            // console.log(action.payload ? 'NO' : 'YES');
+            return {
+                ...state,
+                loading: true,
+                loaded: false,
+                data: action.payload
+             };
+        }
+        case fromproperty.UpdateLocationSucess: {
+            // console.log(action.payload ? 'NO' : 'YES');
+            return {
+                ...state,
+                loading: true,
+                loaded: false,
+                data: action.payload
+             };
+        }
+        case fromproperty.UpdateLocationFail: {
+            // console.log(action.payload ? 'NO' : 'YES');
+            return {
+                ...state,
+                loading: true,
+                loaded: false,
+                data: action.payload
+             };
+        }
+
+
     }
     return state;
 
