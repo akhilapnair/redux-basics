@@ -6,78 +6,22 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 
+declare var google: any;
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit {
-
-  public latitude: number;
-  public longitude: number;
-  public mapForm: FormGroup;
-  public zoom: number;
-  public searchControl: FormControl;
-
-  @ViewChild('search')
-  public searchElementRef: ElementRef;
-
-  constructor(
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone,
-    private formBuilder: FormBuilder
-  ) {}
-
+export class MapComponent implements OnInit  {
+  constructor() {}
   ngOnInit() {
-    // set google maps defaults
-    // create search FormControl
-
-    this.searchControl = new FormControl();
-    // this.mapForm = this.formBuilder.group({
-    //     searchControl: ['', Validators.required]});
-    this.zoom = 4;
-    this.latitude = 39.8282;
-    this.longitude = -98.5795;
-
-    // set current position
-    this.setCurrentPosition();
-
-   // load Places Autocomplete
-
-    this.mapsAPILoader.load().then(() => {
-      // tslint:disable-next-line:prefer-const
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ['address']
-      });
-      autocomplete.addListener('place_changed', () => {
-        this.ngZone.run(() => {
-          // get the place result
-          // tslint:disable-next-line:prefer-const
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-
-          // verify result
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-
-          // set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
-        });
-      });
-    });
-  }
-
-  private setCurrentPosition() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 12;
-      });
-    }
+      const mapProp = {
+          center: new google.maps.LatLng(51.508742, -0.120850),
+          zoom: 5,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      const map = new google.maps.Map(document.getElementById('googleMap'), mapProp);
   }
 }
 
