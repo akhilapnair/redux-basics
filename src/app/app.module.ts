@@ -34,10 +34,6 @@ export const ROUTES: Routes = [
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyDz7hMuIrx7hJFT-eYXPM3T5E0MnjXzl8s',
-    //    libraries: ['places']
-    // }),
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),

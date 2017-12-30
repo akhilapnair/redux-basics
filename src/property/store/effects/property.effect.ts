@@ -23,7 +23,7 @@ export class PropertyEffects {
 
     @Effect()
     CreateProperty$ = this.action$.ofType(fromAction.CREATE_PROPERTY).pipe(
-        map((action: fromAction.CreateProperty) => action.payload),
+        map((action: fromAction.UpdateLocation) => action.payload),
         switchMap( pizza => {
                 return this.PropertyServices
                 .createPizza(pizza).pipe(
@@ -31,4 +31,14 @@ export class PropertyEffects {
                 );
             }));
 
+
+    @Effect()
+    UpdateProperty$ = this.action$.ofType(fromAction.UPDATE_LOCATION).pipe(
+        map((action: fromAction.UpdateLocation) => action.payload),
+        switchMap( pizza => {
+                return this.PropertyServices
+                .updateProperty(pizza).pipe(
+                    map(updateproperty => new fromAction.UpdateLocationSucess(updateproperty))
+                );
+            }));
 }

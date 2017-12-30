@@ -39,7 +39,6 @@ export class PropertyAddComponent implements OnInit  {
       payload: data
      });
      this.dialog.closeAll();
-    // this.store.dispatch(new fromAction.CreateProperty({data: data}));
    }
 
 }
