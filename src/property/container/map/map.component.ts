@@ -19,14 +19,14 @@ export class MapComponent implements OnInit  {
     const markers = [
       {
           'title': 'Pune',
-          'lat': '18.523600',
-          'lng': '73.847800',
+          'lat': '8.5241',
+          'lng': '76.9366',
           'description': 'Pune is the seventh largest metropolis in India, the second largest in the state of Maharashtra after Mumbai.'
       }
   ];
   window.onload = function () {
       const mapOptions = {
-          center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+        //   center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
           zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
       };
@@ -35,6 +35,7 @@ export class MapComponent implements OnInit  {
       // tslint:disable-next-line:no-var-keyword
       var geocoder = geocoder = new google.maps.Geocoder();
       const map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+    //   map.setZoom(12);
       for (let i = 0; i < markers.length; i++) {
           const data = markers[i];
           const myLatlng = new google.maps.LatLng(data.lat, data.lng);
@@ -70,3 +71,4 @@ export class MapComponent implements OnInit  {
       map.fitBounds(latlngbounds);
   };
   }
+}
