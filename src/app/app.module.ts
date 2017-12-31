@@ -1,10 +1,11 @@
 // import { BrowserModule } from '@angular/platform-browser';
+import { NewPropertyComponent } from '../property/container/new-property/new-property.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PropertyAddComponent } from '../property/container';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 // import { PropertyListComponent } from './container/property-list/propertylist.component';
@@ -23,16 +24,19 @@ export const ROUTES: Routes = [
     loadChildren: '../property/property.module#PropertyModule',
   },
   { path: 'map', component: MapComponent },
+  { path: 'newproperty', component: NewPropertyComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    NewPropertyComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+     MatFormFieldModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({}),
