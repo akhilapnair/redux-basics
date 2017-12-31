@@ -15,6 +15,7 @@ import { PropertyEffects } from '../property/store/effects/property.effect';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from '../property/container/map/map.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material';
 // import { MapsAPILoader } from '@agm/core';
 // routes
 export const ROUTES: Routes = [
@@ -35,6 +36,7 @@ export const ROUTES: Routes = [
   ],
   imports: [
     CommonModule,
+    MatInputModule,
     ReactiveFormsModule,
      MatFormFieldModule,
     BrowserAnimationsModule,
