@@ -21,11 +21,11 @@ export class PropertyListComponent implements OnInit {
         this.data$ = this.store.select<any>('reducer');
         console.log( this.data$);
     }
-    openDialog(): void {
-        this.propertyDialogRef = this.dialog.open(PropertyAddComponent, {
-              width: '500px',
-              height: '661px'
-            });
+    // openDialog(): void {
+    //     this.propertyDialogRef = this.dialog.open(PropertyAddComponent, {
+    //           width: '500px',
+    //           height: '661px'
+    //         });
 
-      }
+    //   }
 }

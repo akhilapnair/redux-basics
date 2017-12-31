@@ -36,8 +36,8 @@ export class NewPropertyComponent implements OnInit  {
           'description': 'TVM'
       }
   ];
-  this.store.dispatch(new fromAction.UpdateLocation({'lat': '8.5241',
-  'lng': '76.9366' }));
+  // this.store.dispatch(new fromAction.UpdateLocation({'lat': '8.5241',
+  // 'lng': '76.9366' }));
   window.onload = function () {
       const mapOptions = {
           center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
@@ -73,6 +73,11 @@ export class NewPropertyComponent implements OnInit  {
                           lat = marker.getPosition().lat();
                           lng = marker.getPosition().lng();
                           address = results[0].formatted_address;
+                          //  this.propertyForm.controls['propertyname'].patchValue(address);
+                          // this.propertyForm.patchValue({
+                          // propertyname: address
+                          // });
+                            // this.propertyForm.patchValue({'street': address});
                           alert('Latitude: ' + lat + '\nLongitude: ' + lng + '\nAddress: ' + address);
                       }
                   });
