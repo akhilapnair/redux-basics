@@ -2,7 +2,7 @@
 
 <div>
   <mat-card  class="card">
-   
+
     <!-- <div *ngFor = "let property of( data$ | async).data"> -->
         <!-- {{ ( data$ | async).data?.length}} -->
        <!-- <a [routerLink] = "['/map']"> {{property.propertyname}} </a>{{property.email}}<br><br> -->
@@ -10,4 +10,5 @@
   {{( data$ | async).data ["propertyname"]}}
   </mat-card>
 </div>
-<button mat-fab  (click)="openDialog()"> Add</button>
+  <a [routerLink] = "['/newproperty']">Add </a>
+<!--<button mat-fab > Add</button>-->
