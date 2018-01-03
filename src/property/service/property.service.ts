@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
-import { Property } from '../model/property.model';
+// import { Property } from '../model/property.model';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 // import { switchMap, , catchError } from 'rxjs/operators';
@@ -18,10 +18,14 @@ export class PropertyService {
       console.log(url);
       return this.http.get(url);
           }
-    createPizza(payload): Observable<any> {
-      return this.http
-        .post('../../assets/db.json', payload);
-        // .pipe(catchError((error: any) => Observable.throw(error.json())));
+    createProperty(payload): Observable<any> {
+       console.log('@ service');
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        // tslint:disable-next-line:prefer-const
+        let options = new RequestOptions({ headers: headers });
+        // const body = {};
+        return this.http.post('https://dog.ceo/api/breeds/list/all', payload)
+        .map((res: Response) => res.json());
     }
     updateProperty(payload): Observable<any> {
       return this.http

@@ -1,4 +1,5 @@
 // tslint:disable-next-line:eofline
+import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Effect , Actions } from '@ngrx/effects';
@@ -22,14 +23,13 @@ export class PropertyEffects {
 
 
     @Effect()
-    CreateProperty$ = this.action$.ofType(fromAction.CREATE_PROPERTY).pipe(
-        map((action: fromAction.UpdateLocation) => action.payload),
-        switchMap( pizza => {
-                return this.PropertyServices
-                .createPizza(pizza).pipe(
-                    map(createproperty => new fromAction.CreatePropertySucess(createproperty))
-                );
-            }));
+    CreateProperty$ = this.action$
+        .ofType(fromAction.CREATE_PROPERTY)
+        .switchMap((payload: any) => this.PropertyServices.createProperty
+        .map((user: any) => new fromAction.CreatePropertySucess(user))
+        // .do(() => this.router.navigate(['/customerList']))
+        .catch(error => Observable.of(new fromAction.CreatePropertyFail(error)))
+        );
 
 
     @Effect()

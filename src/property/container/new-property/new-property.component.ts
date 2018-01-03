@@ -15,9 +15,8 @@ import * as  fromAction from '../../store/action/property.action';
 export class NewPropertyComponent implements OnInit  {
     propertyForm: FormGroup;
     data$: Observable<any>;
-      constructor( private formBuilder: FormBuilder, private store: Store<any>) {}
-      ngOnInit() {
-        this.propertyForm = this.formBuilder.group({
+      constructor( private formBuilder: FormBuilder, private store: Store<any>) {
+              this.propertyForm = this.formBuilder.group({
             propertyname: ['', Validators.required],
             email: ['', Validators.required],
             phone: ['', Validators.required],
@@ -40,7 +39,7 @@ export class NewPropertyComponent implements OnInit  {
   // 'lng': '76.9366' }));
   window.onload = function () {
       const mapOptions = {
-          center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+          center: new google.maps.LatLng( markers['0'].lat, markers['0'].lng),
         //   zoom: 13,
           mapTypeId: google.maps.MapTypeId.ROADMAP
       };
@@ -73,7 +72,7 @@ export class NewPropertyComponent implements OnInit  {
                           lat = marker.getPosition().lat();
                           lng = marker.getPosition().lng();
                           address = results[0].formatted_address;
-                          //  this.propertyForm.controls['propertyname'].patchValue(address);
+                           this.propertyForm.controls['street'].patchValue(address);
                           // this.propertyForm.patchValue({
                           // propertyname: address
                           // });
@@ -90,6 +89,9 @@ export class NewPropertyComponent implements OnInit  {
       map.fitBounds(latlngbounds);
   };
      this.data$ = this.store.select<any>('property');
+      }
+      ngOnInit() {
+
   }
    getData(data: any) {
      console.log('DATA : ', data);
